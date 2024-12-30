@@ -71,7 +71,7 @@ try:
     email_input = WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.XPATH, email_input_xpath))
     )
-    email_input.clear()  # Clear any pre-filled text
+    email_input.clear()  
     email_input.send_keys(email_address)
 
 
@@ -80,9 +80,8 @@ try:
 
     password_input = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.XPATH, password_input_xpath))
-    )
-    password_input.clear()  # Clear any pre-filled text
-    password_input.send_keys(password)  # Input your password
+    ) # Clear any pre-filled text
+    password_input.send_keys(password)  
 
     sign_in_button_xpath = '//input[@type="submit" and @name="ctl00$ContentPlaceHolderContenido$Login1$LoginButton"]'
 
