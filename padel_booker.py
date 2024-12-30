@@ -25,7 +25,7 @@ WEBSITE_URL = "http://www.bushytennispadel.ie/Booking/Grid.aspx"  # Replace with
 service = Service(executable_path=r"C:\Users\gusbo\chromedriver-win64\chromedriver-win64\chromedriver.exe")
 
 # Initialize WebDriver
-driver = webdriver.Chrome(service=service)  # Ensure ChromeDriver is in your PATH
+driver = webdriver.Chrome(service=service)  
 wait = WebDriverWait(driver, 15)
 
 try:
@@ -40,7 +40,7 @@ try:
     # Locate the element
     date_element = driver.find_element(By.XPATH, xpath)
 
-# Click the element
+
     date_element.click()
 
     # Step 2: Select the time with columna=2
@@ -97,7 +97,14 @@ try:
     checkbox = WebDriverWait(driver, 10).until(
     EC.element_to_be_clickable((By.ID, checkbox_id))
     )
-    checkbox.click()  # Click the checkbox
+    checkbox.click() 
+
+    book_button = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.ID, "ctl00_ContentPlaceHolderContenido_ButtonPagoCentro"))
+    )
+
+   
+    book_button.click()
 
     print("Booking successful!")
 
