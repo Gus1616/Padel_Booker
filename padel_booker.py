@@ -6,15 +6,13 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 import time
 from selenium.webdriver.chrome.service import Service
-
-
 import json
 
-# Load the configuration file
+
 with open("config.json", "r") as file:
     config = json.load(file)
 
-# Access the variables
+
 email = config["email"]
 password_pass = config["password"]
 
@@ -22,7 +20,7 @@ def booker():
     WEBSITE_URL = "http://www.bushytennispadel.ie/Booking/Grid.aspx"  
 
 
-    service = Service(executable_path=r"C:\Users\gusbo\chromedriver-win64\chromedriver-win64\chromedriver.exe")
+    service = Service(executable_path=r"C:\Users\gusbo\chromedriver-win32\chromedriver.exe")
 
     # Initialize WebDriver
     driver = webdriver.Chrome(service=service)  
@@ -115,3 +113,5 @@ def booker():
         time.sleep(20)
         driver.quit()
     return print("ran function")
+
+
