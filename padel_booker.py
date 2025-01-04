@@ -7,7 +7,7 @@ from selenium.common.exceptions import TimeoutException
 import time
 from selenium.webdriver.chrome.service import Service
 import json
-
+from datetime import date
 
 with open("config.json", "r") as file:
     config = json.load(file)
@@ -17,14 +17,22 @@ email = config["email"]
 password_pass = config["password"]
 
 def booker():
+    current_date = date.today()
+    booking_month = current_date.month - 1
+    booking_day = current_date.day + 14
+
+
     WEBSITE_URL = "http://www.bushytennispadel.ie/Booking/Grid.aspx"  
 
 
     service = Service(executable_path=r"C:\Users\gusbo\chromedriver-win32\chromedriver.exe")
 
-    # Initialize WebDriver
+   
     driver = webdriver.Chrome(service=service)  
     wait = WebDriverWait(driver, 15)
+
+    
+     
 
     try:
     
@@ -34,7 +42,7 @@ def booker():
         date_button.click()
         wait = WebDriverWait(driver, 15)
 
-        xpath = '//td[@data-month="0" and @data-year="2025"]//a[text()="8"]'
+        xpath = f'//td[@data-month="{booking_month}" and @data-year="2025"]//a[text()="{booking_day}"]'
     
         date_element = driver.find_element(By.XPATH, xpath)
 
@@ -113,5 +121,8 @@ def booker():
         time.sleep(20)
         driver.quit()
     return print("ran function")
+
+
+booker()
 
 
