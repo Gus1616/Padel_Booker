@@ -49,8 +49,8 @@ def booker():
 
         date_element.click()
 
-        # Step 2: Select the time with columna=2
-        time_xpath = '//*[name()="rect" and @time="21:00" and @columna="2"]'
+ 
+        time_xpath = '//*[name()="rect" and @time="20:00" and @columna="2"]'
         time_element = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, time_xpath))
         )
