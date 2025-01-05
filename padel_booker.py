@@ -19,7 +19,7 @@ password_pass = config["password"]
 def booker():
     current_date = date.today()
     booking_month = current_date.month - 1
-    booking_day = current_date.day + 14
+    booking_day = current_date.day + 13
 
 
     WEBSITE_URL = "http://www.bushytennispadel.ie/Booking/Grid.aspx"  

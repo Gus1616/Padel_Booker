@@ -10,7 +10,7 @@ def job(t):
     padel_booker.booker()
     return
 
-schedule.every().wednesday.at("00:01").do(job)
+schedule.every().thursday.at("00:01").do(job)
 
 while True:
     schedule.run_pending()
