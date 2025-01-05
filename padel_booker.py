@@ -28,7 +28,9 @@ def booker():
     service = Service(executable_path=r"C:\Users\gusbo\chromedriver-win32\chromedriver.exe")
 
    
-    driver = webdriver.Chrome(service=service)  
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    driver = webdriver.Chrome(service=service, options=options)  
     wait = WebDriverWait(driver, 15)
 
     
